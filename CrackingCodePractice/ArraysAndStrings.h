@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include "BasicHelper.h"
 class ArraysAndStrings
 {
 public:
@@ -28,9 +28,17 @@ public:
 	//Write a method to decide if two strings are anagrams or not.
 	bool IsAnagrams(std::string str1, std::string str2);
 
+	//Write a method to replace all spaces in a string with ¡¥%20¡¦.
+	std::string Replace(std::string str, std::string from, std::string to);
+
+	//Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, 
+	//write a method to rotate the image by 90 degrees. Can you do this in place? 
+	int* RotateSquareImg(int* img, int size);
+	int* GeneratedSquareImg(int size);
+	void PrintSquareImg(int* img, int size);
 protected:
 
 private:
-
+	BasicHelper helper;
 
 };

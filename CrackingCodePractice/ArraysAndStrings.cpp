@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "ArraysAndStrings.h"
+#include <iostream>
+#include "math.h"
 
 using namespace std;
 
@@ -109,4 +111,54 @@ bool ArraysAndStrings::IsAnagrams(string str1, string str2)
 		asciiRecorder[int(str2[i])]--;
 	}
 	return true;
+}
+
+string ArraysAndStrings::Replace(string str, string from, string to)
+{
+	if (str.empty())
+		return "";
+	size_t strPos = 0;
+
+	strPos = str.find(from,strPos);
+	while (strPos != string::npos)
+	{
+		str.replace(strPos, from.length(), to);
+		strPos = str.find(from, strPos + to.length() );
+	}
+	return str;
+}
+
+int* ArraysAndStrings::RotateSquareImg(int* img, int size)
+{
+	/*Reflect via diagonal*/
+	for (int i = 0; i < size; i++)
+		for (int j = i + 1; j < size; j++)
+			helper.swap( img[i*size/*row*/ + j/*col*/], img[j*size/*row*/ + i/*col*/] );
+
+	/*Reflect via horizontal*/
+	for (int i = 0; i < size/2; i++)
+		for (int j = 0; j < size; j++)
+			helper.swap(img[i*size/*row*/ + j/*col*/], img[(size-i-1)*size/*row*/ + j/*col*/]);
+
+	return img;
+}
+
+int* ArraysAndStrings::GeneratedSquareImg(int size)
+{
+	int* img = new int[size*size];
+	for (int i = 0; i < size*size; i++)
+		img[i] = i + 1;
+	return img;
+}
+
+void ArraysAndStrings::PrintSquareImg(int* img, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			cout << img[ i*size/*row*/ + j/*col*/ ] << " ";
+		}
+		cout << endl;
+	}
 }
