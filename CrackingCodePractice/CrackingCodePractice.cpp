@@ -55,6 +55,20 @@ void CallArraysAndStrings(int QuestionIndex)
 			obj.PrintSquareImg( obj.RotateSquareImg(img, size), size );
 		}
 		break;
+		case 7:
+		{
+			int matrix[24] = {
+				 0, 1, 2, 3, 4, 5,
+				 6, 7, 8, 9,10,11,
+				12,13,14,15, 0, 0,
+				18,19,20,21,22,23
+			};
+			obj.PrintMatrix(matrix, 4, 6);
+
+			cout << endl << "If matrix has 0 content, then this content's row and column should be clear to 0. " << endl;
+			obj.PrintMatrix(obj.ParseMatrixToZero(matrix, 4,6), 4,6);
+		}
+		break;
 		default:
 			break;
 	}
@@ -64,7 +78,7 @@ void CallArraysAndStrings(int QuestionIndex)
 
 int main()
 {
-	CallArraysAndStrings(6);
+	CallArraysAndStrings(7);
     return 0;
 }
 

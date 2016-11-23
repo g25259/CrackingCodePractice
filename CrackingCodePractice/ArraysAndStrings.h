@@ -36,6 +36,10 @@ public:
 	int* RotateSquareImg(int* img, int size);
 	int* GeneratedSquareImg(int size);
 	void PrintSquareImg(int* img, int size);
+
+	//Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
+	int* ParseMatrixToZero(int* matrix, int row, int col);
+	void PrintMatrix(int* matrix, int rowSize, int colSize);
 protected:
 
 private:

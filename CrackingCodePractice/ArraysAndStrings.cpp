@@ -2,7 +2,8 @@
 #include "ArraysAndStrings.h"
 #include <iostream>
 #include "math.h"
-
+#include <vector>
+#include <iomanip>
 using namespace std;
 
 ArraysAndStrings::ArraysAndStrings()
@@ -157,8 +158,54 @@ void ArraysAndStrings::PrintSquareImg(int* img, int size)
 	{
 		for (int j = 0; j < size; j++)
 		{
-			cout << img[ i*size/*row*/ + j/*col*/ ] << " ";
+			cout << setw(3) << img[ i*size/*row*/ + j/*col*/ ] << " ";
 		}
 		cout << endl;
 	}
+}
+
+void ArraysAndStrings::PrintMatrix(int* matrix, int rowSize, int colSize)
+{
+	for (int i = 0; i < rowSize; i++)
+	{
+		for (int j = 0; j < colSize; j++)
+		{
+			cout << setw(3) << matrix[i*colSize/*row*/ + j/*col*/] << " ";
+		}
+		cout << endl;
+	}
+}
+
+int* ArraysAndStrings::ParseMatrixToZero(int* matrix, int rowSize, int colSize)
+{
+	vector<bool> row(rowSize, false);
+	vector<bool> col(colSize, false);
+
+	for (int i = 0; i < rowSize; i++)
+	{
+		for (int j = 0; j < colSize; j++)
+		{
+			if (!row[i] && !col[j])
+			{
+				if (matrix[i*colSize + j] == 0)
+				{
+					row[i] = true;
+					col[j] = true;
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < rowSize; i++)
+	{
+		for (int j = 0; j < colSize; j++)
+		{
+			if (row[i] || col[j])
+			{
+				matrix[i*colSize + j] = 0;
+			}
+		}
+	}
+
+	return matrix;
 }
