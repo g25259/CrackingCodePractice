@@ -5,6 +5,7 @@
 #include "CrackingCodePractice.h"
 #include "ArraysAndStrings.h"
 
+
 using namespace std;
 
 void CallArraysAndStrings(int QuestionIndex)
@@ -12,6 +13,7 @@ void CallArraysAndStrings(int QuestionIndex)
 	string str, str2;
 	string result = "";
 	ArraysAndStrings obj;
+	BasicHelper helper;
 	switch ( QuestionIndex )
 	{
 		case 1:
@@ -63,10 +65,17 @@ void CallArraysAndStrings(int QuestionIndex)
 				12,13,14,15, 0, 0,
 				18,19,20,21,22,23
 			};
-			obj.PrintMatrix(matrix, 4, 6);
+			helper.PrintMatrix(matrix, 4, 6);
 
 			cout << endl << "If matrix has 0 content, then this content's row and column should be clear to 0. " << endl;
-			obj.PrintMatrix(obj.ParseMatrixToZero(matrix, 4,6), 4,6);
+			helper.PrintMatrix(obj.ParseMatrixToZero(matrix, 4,6), 4,6);
+		}
+		break;
+		case 8:
+		{
+			cout << "Is the input two strings are rotation?" << endl;
+			cin >> str >> str2;
+			result = obj.IsRotated(str, str2) ? "They are rotation." : "They are not rotation.";
 		}
 		break;
 		default:
@@ -78,7 +87,7 @@ void CallArraysAndStrings(int QuestionIndex)
 
 int main()
 {
-	CallArraysAndStrings(7);
+	CallArraysAndStrings(8);
     return 0;
 }
 

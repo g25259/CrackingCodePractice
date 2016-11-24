@@ -39,7 +39,12 @@ public:
 
 	//Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
 	int* ParseMatrixToZero(int* matrix, int row, int col);
-	void PrintMatrix(int* matrix, int rowSize, int colSize);
+	
+	//Assume you have a method isSubstring which checks if one word is a substring of another. 
+	//Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring 
+	//( i.e., ¡§waterbottle¡¨ is a rotation of ¡§erbottlewat¡¨).
+	bool IsRotated(std::string s1, std::string s2);
+
 protected:
 
 private:

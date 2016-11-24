@@ -3,7 +3,7 @@
 #include <iostream>
 #include "math.h"
 #include <vector>
-#include <iomanip>
+
 using namespace std;
 
 ArraysAndStrings::ArraysAndStrings()
@@ -164,17 +164,7 @@ void ArraysAndStrings::PrintSquareImg(int* img, int size)
 	}
 }
 
-void ArraysAndStrings::PrintMatrix(int* matrix, int rowSize, int colSize)
-{
-	for (int i = 0; i < rowSize; i++)
-	{
-		for (int j = 0; j < colSize; j++)
-		{
-			cout << setw(3) << matrix[i*colSize/*row*/ + j/*col*/] << " ";
-		}
-		cout << endl;
-	}
-}
+
 
 int* ArraysAndStrings::ParseMatrixToZero(int* matrix, int rowSize, int colSize)
 {
@@ -208,4 +198,10 @@ int* ArraysAndStrings::ParseMatrixToZero(int* matrix, int rowSize, int colSize)
 	}
 
 	return matrix;
+}
+
+bool ArraysAndStrings::IsRotated(string s1, string s2)
+{
+	if (s1.size() != s2.size()) return false;
+	return helper.isSubstring((s1 + s1), s2);
 }
